@@ -16,13 +16,16 @@ Download dan install Python dari [python.org](https://www.python.org/downloads/)
 
 ### 2. Clone Repository
 ```bash
-git clone https://github.com/username/aplikasi-pengolahan-citra.git
-cd aplikasi-pengolahan-citra
+git clone https://github.com/yookaaa/UAS-PCD.git
+cd UAS-PCD
 ```
 
 ### 3. Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install streamlit
+pip install opencv-python
+pip install numpy
+pip install pillow
 ```
 
 ### 4. Jalankan Aplikasi
@@ -84,15 +87,3 @@ python -m streamlit run app.py
 ```bash
 pip install opencv-python
 ```
-
-## 📄 Lisensi
-
-MIT License
-
-## 👨‍💻 Author
-
-Nama Anda - [@username](https://github.com/username)
-
----
-
-⭐ Jika bermanfaat, berikan star!
