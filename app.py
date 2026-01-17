@@ -6,7 +6,7 @@ import io
 
 st.set_page_config(
     page_title="UAS PCD - Kelompok 1",
-    page_icon="✨",
+    page_icon="🖥️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -19,10 +19,16 @@ st.markdown("""
             font-family: 'Inter', sans-serif;
         }
 
-        /* Sembunyikan Branding Streamlit */
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
-        header {visibility: hidden;}
+        header {
+            background-color: transparent !important;
+        }
+        
+        /* Memastikan icon panah terlihat terang di background gelap */
+        [data-testid="stSidebarCollapseButton"] svg {
+            fill: #60a5fa !important;
+        }
 
         /* Background Elegan Dark Gradient */
         .stApp {
@@ -667,8 +673,7 @@ def main():
     with st.sidebar:
         st.markdown("""
             <div class='control-panel-title'>
-                <h2>🎛️ Panel Kontrol</h2>
-                <p>Pusat Pengolahan Citra</p>
+                <h2>Panel Kontrol</h2>
             </div>
         """, unsafe_allow_html=True)
         
@@ -676,8 +681,8 @@ def main():
         st.markdown("<div class='sidebar-section-header'>📁 Unggah Gambar</div>", unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
             "Pilih file gambar",
-            type=["jpg", "jpeg", "png"],
-            help="Format: JPG, JPEG, PNG (Maks. 200MB)",
+            type=["jpg", "jpeg", "png", "tif", "bmp"],
+            help="Format: JPG, JPEG, PNG, TIF, BMP (Maks. 200MB)",
             label_visibility="collapsed"
         )
 
@@ -749,8 +754,8 @@ def main():
         # ========== LANDING PAGE ==========
         st.markdown("""
             <div class='hero-banner'>
-                <div class='hero-title'>✨ PENGOLAHAN CITRA DIGITAL</div>
-                <div class='hero-subtitle'>Platform Computer Vision dengan Teknologi Terkini</div>
+                <div class='hero-title'>IMAGE PROCESSING APP</div>
+                <div class='hero-subtitle'>Pusat Pemrosesan Citra Digital</div>
             </div>
         """, unsafe_allow_html=True)
 
@@ -776,7 +781,7 @@ def main():
                 """, unsafe_allow_html=True)
         
         st.markdown("<br><br>", unsafe_allow_html=True)
-        st.info("👋 Unggah gambar melalui sidebar untuk memulai pemrosesan")
+        st.info("NOTE: Unggah gambar melalui sidebar pada sisi kiri aplikasi untuk memulai pemrosesan")
         
     else:
         # ========== MODE EDITOR ==========
@@ -890,8 +895,6 @@ def main():
                     "Closing": "Closing adalah dilasi diikuti erosi, menutup celah kecil.",
                     "Opening": "Opening adalah erosi diikuti dilasi, menghilangkan noise kecil.",
                     "Pisah RGB": "Memisahkan citra menjadi kanal Merah, Hijau, dan Biru.",
-                    "Konversi HSV": "Mengonversi ke model warna Hue, Saturation, Value.",
-                    "Konversi YIQ": "Mengonversi ke model warna YIQ yang digunakan dalam broadcasting.",
                     "Binary Threshold": "Segmentasi dengan nilai threshold manual.",
                     "Otsu Threshold": "Segmentasi otomatis menggunakan metode Otsu."
                 }
